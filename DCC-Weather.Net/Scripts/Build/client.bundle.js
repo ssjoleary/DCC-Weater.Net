@@ -95,12 +95,18 @@
 	            data.forEach(function (forecast) {
 	                forecast.ForecastDate = days[eval("new " + forecast.ForecastDate.slice(1, -1)).getDay()];
 	            });
-	            this.setState({ data: data });
+	            this.setState({
+	                data: data,
+	                isLoading: false
+	            });
 	        }.bind(this);
 	        xhr.send();
 	    },
 	    getInitialState: function getInitialState() {
-	        return { data: [] };
+	        return {
+	            data: [],
+	            isLoading: true
+	        };
 	    },
 	    componentWillMount: function componentWillMount() {
 	        this.getForecast();
@@ -112,6 +118,7 @@
 	        return React.createElement(
 	            'div',
 	            { className: "forecastList row" },
+	            this.state.isLoading === true ? React.createElement(LoadingIcon, null) : false,
 	            forecastNodes
 	        );
 	    }
@@ -209,6 +216,28 @@
 	                        React.createElement(ForecastTemperature, { temp: this.props.data.Low, diff: this.props.data.LowDiff })
 	                    )
 	                )
+	            )
+	        );
+	    }
+	});
+
+	var LoadingIcon = React.createClass({
+	    displayName: 'LoadingIcon',
+
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            { className: "col-xs-6 col-sm-6 col-md-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-3 text-center" },
+	            React.createElement(
+	                'span',
+	                { className: "glyphicon glyphicon-cloud loading-icon" },
+	                ' '
+	            ),
+	            React.createElement('br', null),
+	            React.createElement(
+	                'span',
+	                { className: "loading-text" },
+	                'Checking the weather...'
 	            )
 	        );
 	    }

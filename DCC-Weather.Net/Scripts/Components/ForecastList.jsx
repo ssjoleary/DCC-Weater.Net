@@ -11,12 +11,18 @@ var ForecastList = React.createClass({
             data.forEach(function (forecast) {
                 forecast.ForecastDate = days[eval("new " + forecast.ForecastDate.slice(1, -1)).getDay()];
             })
-            this.setState({ data: data });
+            this.setState({
+                data: data,
+                isLoading: false
+            });
         }.bind(this);
         xhr.send();
     },
     getInitialState: function () {
-        return { data: [] };
+        return {
+            data: [],
+            isLoading: true
+        };
     },
     componentWillMount: function () {
         this.getForecast();
@@ -29,6 +35,7 @@ var ForecastList = React.createClass({
         })
         return (
             <div className={"forecastList row"}>
+                {this.state.isLoading === true ? <LoadingIcon /> : false }
                 {forecastNodes}
             </div>
         );
@@ -91,6 +98,18 @@ var ForecastItem = React.createClass({
         )
 }
 });
+
+var LoadingIcon = React.createClass({
+    render: function () {
+        return (
+               <div className={"col-xs-6 col-sm-6 col-md-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-3 text-center"}>
+                   <span className={"glyphicon glyphicon-cloud loading-icon"}>&nbsp;</span>
+                   <br />
+                   <span className={"loading-text" }>Checking the weather...</span>
+               </div>
+        )
+}
+})
 
 module.exports = ForecastList;
 

@@ -23,7 +23,11 @@ textarea {
     max-width: 280px;
 }
 
-.forecast-day {
+.loading-icon {
+    font-size: 3em;
+}
+
+.forecast-day, .loading-text {
     font-size: 1.75em;
     font-weight: bold;
 }
