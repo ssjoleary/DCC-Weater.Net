@@ -1,0 +1,14 @@
+{
+  "name": "dcc-weather-net",
+  "version": "1.0.0",
+  "description": "Developer Coding Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sam O'Leary",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^1.13.0"
+  }
+}

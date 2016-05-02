@@ -1,0 +1,65 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.forecast-day {
+    font-size: 1.75em;
+    font-weight: bold;
+}
+
+.forecast-conditions {
+    font-size: 1.5em;
+    color: gray;
+}
+
+.forecast-temp, .forecast-temp-diff {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.forecast-temp-diff {
+    margin-left: 7px;
+    color: #c3c3c3;
+}
+
+.forecast-temp-div, .forecast-icon {
+    text-align: right;
+}
+
+.forecast-panel-body {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.site-wrapper {
+    display: table;
+    width: 100%;
+    height: 80vh; /* For at least Firefox */
+    min-height: 80vh;
+}
+
+.site-wrapper-inner{
+    display: table-cell;
+    vertical-align: middle;
+}
