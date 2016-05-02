@@ -47,8 +47,7 @@ namespace DCC_Weather.DAL.DbRepo
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
-                return false;
+                throw;
             }
         }        
     }

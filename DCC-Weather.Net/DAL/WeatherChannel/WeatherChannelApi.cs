@@ -26,8 +26,7 @@ namespace DCC_Weather.DAL
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                return null;
+                throw;
             }
         }               
 
@@ -58,8 +57,7 @@ namespace DCC_Weather.DAL
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                return null;
+                throw;
             }
         }
 
